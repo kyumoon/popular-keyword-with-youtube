@@ -8,12 +8,11 @@ import Video from './video'
 class VideoList extends Component{
 
     render() {
-        console.log('video list rendered')
+        console.log('VideoList rendered');
         let a= 1;
         return <ul>
             {this.props.list 
             ?this.props.list.map((item)=>{
-                console.log(item);
                 return <Video key={item.id.videoId} item={item}/>
             })
             :<div>loding....</div>
@@ -22,7 +21,6 @@ class VideoList extends Component{
     }
 
     componentDidMount() {
-        console.log('video list mounted')
         this.props.getList();
     };
 

@@ -6,16 +6,7 @@ const RECEIVE_VIDEO_LIST = 'RECEIVE_VIDEO_LIST';
 const GET_VIDEO_LIST = 'GET_VIDEO_LIST';
 const CHOICE_VIDEO = 'CHOICE_VIDEO';
 
-const requestList = () => {
-    console.log('requestList');
-    return {
-        type: REQUEST_VIDEO_LIST,
-        isFetching: true
-    }
-}
-
 const receiveList = (list) => {
-    console.log('receiveList', list);
     return {
         type: RECEIVE_VIDEO_LIST,
         isFetching: false,
@@ -23,20 +14,14 @@ const receiveList = (list) => {
     }
 }
 
-export const getList = (dispatch) => {
-    var opts = {
-        maxResults: 10,
-        key: 'AIzaSyB2-nh1YNO5HP01iR8Z0m4hkh01l0ST1LY'
-    };
+export const getList = () => {
     return dispatch => {
-        dispatch(requestList());
         const keyword = "볼링";
         // const key = "AIzaSyB2-nh1YNO5HP01iR8Z0m4hkh01l0ST1LY"
         const key = "invalid key"
         const url = `https://www.googleapis.com/youtube/v3/search?q=${keyword}&part=snippet&maxResults=10&key=${key}`;
         Axios.get(url).then((response) => {
             const items =response.data.items;
-            console.log(items);
             dispatch(receiveList(items));
         }
         ).catch(
@@ -51,13 +36,13 @@ export const getList = (dispatch) => {
 export const choiceVideo = (item) => {
     return {
         type:CHOICE_VIDEO,
-        payload:item.id.videoId
+        payload:item
     }
 }
 
 const initialState={
     list:[],
-    choiceVideoId: '-999'
+    choiceVideoId: 'EMPTY'
 }
 
 export default function reducer(state = initialState, action) {
@@ -79,7 +64,7 @@ export default function reducer(state = initialState, action) {
             console.log('choice item',action);
             return {
                 ...state,
-                choiceVideoId: action.payload
+                item: action.payload
             }
         default:
             return state;

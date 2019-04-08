@@ -14,11 +14,10 @@ const receiveList = (list) => {
     }
 }
 
-export const getList = () => {
+export const getList = (keyword = "볼링") => {
     return dispatch => {
-        const keyword = "볼링";
-        // const key = "AIzaSyB2-nh1YNO5HP01iR8Z0m4hkh01l0ST1LY"
-        const key = "invalid key"
+        const key = "AIzaSyB2-nh1YNO5HP01iR8Z0m4hkh01l0ST1LY"
+        // const key = "invalid key"
         const url = `https://www.googleapis.com/youtube/v3/search?q=${keyword}&part=snippet&maxResults=10&key=${key}`;
         Axios.get(url).then((response) => {
             const items =response.data.items;

@@ -1,0 +1,43 @@
+$green: white;
+
+$inner-padding: 0 4px;
+$space-between-key: 2px;
+
+
+.key-list{
+    overflow: hidden;
+}
+
+.key{
+    color: $green;
+    float:left;
+    border-radius: 5px;
+    background: #207df8;
+    padding: $inner-padding;
+    margin-right: $space-between-key;
+    margin-bottom: $space-between-key;
+    cursor: pointer;
+}
+
+.video-list{
+    overflow: auto;
+}
+
+.video{
+    margin-right: 4px;
+    display: inline-block;
+    width: 210px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    .title{
+        white-space: normal;
+        line-height: 1.2;
+        height: 2.4em;
+        text-align: left;
+        word-wrap: break-word;
+        display: -webkit-box; 
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; 
+    }
+
+}

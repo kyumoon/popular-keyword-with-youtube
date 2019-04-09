@@ -2,10 +2,25 @@ $green: white;
 
 $inner-padding: 0 4px;
 $space-between-key: 2px;
+$side-margin: 40px;
 
+*{
+    margin:0;
+    padding:0;
+}
+
+.searchbar{
+    margin: 0 $side-margin;
+    margin-top: 10px;
+    input{
+        width:100%;
+        height: 2em;
+    }
+}
 
 .key-list{
     overflow: hidden;
+    margin: 10px $side-margin;
 }
 
 .key{
@@ -21,23 +36,37 @@ $space-between-key: 2px;
 
 .video-list{
     overflow: auto;
+    margin: $side-margin;
+}
+
+%title{
+    white-space: normal;
+    line-height: 1.2;
+    height: 2.4em;
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; 
+}
+.title{
+    @extend %title
 }
 
 .video{
     margin-right: 4px;
     display: inline-block;
-    width: 210px;
+    width: 235px;
     margin-bottom: 24px;
     overflow: hidden;
+    cursor: pointer;
     .title{
-        white-space: normal;
-        line-height: 1.2;
-        height: 2.4em;
-        text-align: left;
-        word-wrap: break-word;
-        display: -webkit-box; 
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2; 
+        @extend %title
     }
+}
 
+.video-detail{
+    display: inline-block;
+    padding-left:$side-margin;
+    width:560px;
 }

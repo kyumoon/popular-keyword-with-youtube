@@ -9,7 +9,6 @@ class VideoList extends Component{
 
     render() {
         console.log('VideoList rendered');
-        let a= 1;
         return <ul className="video-list">
             {this.props.list 
             ?this.props.list.map((item)=>{

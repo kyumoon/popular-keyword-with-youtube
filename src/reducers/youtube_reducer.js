@@ -25,8 +25,8 @@ const returnList = (list)=>{
 
 export const getList = (keyword = "볼링") => {
     return dispatch => {
-        // const key = "AIzaSyB2-nh1YNO5HP01iR8Z0m4hkh01l0ST1LY"
-        const key = "invalid key"
+        const key = "AIzaSyB2-nh1YNO5HP01iR8Z0m4hkh01l0ST1LY"
+        // const key = "invalid key"
         const type= "video";
         const limit= "18";
         const url = `https://www.googleapis.com/youtube/v3/search?q=${keyword}&type=${type}&part=snippet&maxResults=${limit}&key=${key}`;

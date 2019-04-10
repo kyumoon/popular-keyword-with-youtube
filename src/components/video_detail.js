@@ -10,7 +10,7 @@ class VideoDetail extends React.Component {
         this.title = item ? item.snippet.title : "empty";
         const videoId = item ? item.id.videoId : ''
         return (
-            <div>
+            <div className="video-detail-container">
                 <div className="video-detail">
                     {videoId?
                         <iframe width="100%" height="100%" src={"https://www.youtube.com/embed/"+videoId} 

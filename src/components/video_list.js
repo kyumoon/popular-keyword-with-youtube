@@ -19,9 +19,9 @@ class VideoList extends Component{
         </ul>
     }
 
-    componentDidMount() {
-        this.props.getList();
-    };
+    // componentDidMount() {
+    //     this.props.getList();
+    // };
 
 }
 const mapStateToProps = ({YoutubeReducer})=>{
